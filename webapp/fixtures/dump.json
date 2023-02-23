@@ -60,6 +60,21 @@
   }
 },
 {
+  "model": "webapp.to_do",
+  "pk": 5,
+  "fields": {
+    "title": "explore PEP 8",
+    "description": "PEP 8 site",
+    "text": "",
+    "status": "IN_PROGRESS",
+    "execution_date": "2023.02.28",
+    "is_deleted": false,
+    "created_at": "2023-02-23T05:26:08.639Z",
+    "updated_at": "2023-02-23T05:26:08.640Z",
+    "deleted_at": null
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
