@@ -5,7 +5,10 @@ from webapp.models import StatusChoice, To_do
 
 
 class TodoForm(forms.ModelForm):
-    title = forms.CharField(max_length=100, label="Заголовок")
+    title = forms.CharField(
+        max_length=100,
+        label="Заголовок"
+    )
     description = forms.CharField(
         max_length=200, required=True, label="Описание"
     )

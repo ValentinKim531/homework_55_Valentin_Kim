@@ -8,21 +8,43 @@
 
 
 .container {
-    margin: 50px auto !important;
-    background: cadetblue;
+    margin: 0 auto;
+    padding: 0;
     width: 800px;
     border-radius: 10px;
-    padding-bottom: 15px;
 }
 
-body {
-    background: url(../img/main-pic.png) no-repeat;
-    background-size: 100%;
+.main-block {
+    padding-top: 100px;
+}
+
+html, body {
+    background: url(../img/main-pic.png) repeat;
+    background-size: cover;
+    height: 100%;
+
+}
+
+.list-group {
+    padding-bottom: 2px;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+}
+
+.content {
+  padding-bottom: 90px;
 }
 
 .bg-primary {
     --bs-bg-opacity: 1;
     background-color: rgb(24, 122, 122)!important;
+}
+
+.badge {
+    margin-left: 10px;
 }
 
 
@@ -33,6 +55,7 @@ div {
 
 .title {
     text-align: center;
+    background: cadetblue;
 }
 
 .button-text-color {
@@ -47,4 +70,26 @@ div {
 
 .code {
   white-space: pre;
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #212529;
+  color: rgb(255 255 255 / 55%);
+}
+
+.row {
+    padding-top: 10px;;
+}
+
+.footer-title {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.footer-text {
+    font-size: 12px;
 }
