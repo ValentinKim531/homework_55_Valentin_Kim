@@ -27,5 +27,17 @@ class TodoForm(forms.ModelForm):
     def clean_title(self):
         title = self.cleaned_data.get("title")
         if len(title) < 2:
-            raise ValidationError("Заголоаок должен быть длиннее 2 символов")
+            raise ValidationError("Title must be longer than 2 characters")
         return title
+
+    def clean_description(self):
+        description = self.cleaned_data.get("description")
+        if len(description) < 2:
+            raise ValidationError("Description must be longer than 2 characters")
+        return description
+
+    def clean_execution_date(self):
+        execution_date = self.cleaned_data.get("execution_date")
+        if 0 < len(execution_date) < 10:
+            raise ValidationError("Enter the date in the format yyyy.mm.dd or leave the field blank")
+        return execution_date
