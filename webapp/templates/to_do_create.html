@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}To do create{% endblock %}
+
+{% block content %}
+<h1 class="title">Create task</h1>
+<form action="{% url 'to_do_add' %}" method="post">
+    {% include 'partial/to_do_form.html' with button_text='Create' %}
+</form>
+{% endblock %}

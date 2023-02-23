@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}To do view{% endblock %}
+{% block menu %}
+<button type="button" class="btn btn-primary button"><a href="{% url 'to_do_add' %}" class="button-text-color">Add
+        Task</a></button>
+{% endblock %}
+{% block content %}
+<h1 class="title">Task</h1>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">Title: {{ to_do.title }}</div>
+        </div>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">Description: {{ to_do.description }}</div>
+        </div>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold" style="white-space: pre-wrap">Text field: {{ to_do.text }}</div>
+        </div>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">Status: {{ to_do.status }}</div>
+        </div>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">Planned due date: {{ to_do.execution_date }}</div>
+        </div>
+    </li>
+</ul>
+<form action="{% url 'to_do_delete' to_do.pk%}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Delete</button>
+</form>
+{% endblock %}
