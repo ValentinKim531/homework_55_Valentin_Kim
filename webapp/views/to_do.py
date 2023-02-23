@@ -35,7 +35,10 @@ def update_view(request, pk):
             return redirect('to_do_detail', pk=to_do.pk)
     else:
         form = TodoForm(instance=to_do)
-    return render(request, 'to_do_update.html', context={'form': form, 'to_do': to_do, 'choices': StatusChoice.choices})
+    return render(request, 'to_do_update.html',
+                  context={'form': form,
+                           'to_do': to_do,
+                           'choices': StatusChoice.choices})
 
 
 def detail_view(request, pk):
