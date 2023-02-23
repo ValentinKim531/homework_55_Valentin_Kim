@@ -9,4 +9,13 @@ def index_view(request: WSGIRequest):
     context = {
         'tasks': tasks
     }
+    if "Delete" in request.POST:
+        checkedlist = request.POST.getlist('checkedbox')
+        print(checkedlist)
+        for i in range(len(checkedlist)):
+            print('da')
+            print(i)
+            todo = To_do.objects.filter(id=int(checkedlist[i]))
+            print(todo)
+            todo.delete()
     return render(request, 'index.html', context=context)

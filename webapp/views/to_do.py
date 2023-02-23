@@ -52,8 +52,13 @@ def delete_task(request, pk):
     to_do = get_object_or_404(To_do, pk=pk)
     return render(request, 'to_do_confirm_delete.html', context={'to_do': to_do})
 
+def delete_tasks(request, pk):
+    to_do = get_object_or_404(To_do, pk=pk)
+    to_do.delete()
+    return redirect('index')
 
 def confirm_delete_task(request, pk):
     to_do = get_object_or_404(To_do, pk=pk)
     to_do.delete()
+
     return redirect('index')

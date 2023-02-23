@@ -6,19 +6,28 @@
 {% endblock %}
 {% block content %}
 <h1 class="title">To-Do list</h1>
-{% for task in tasks %}
-<ol class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto">
-      <div class="fw-bold">Title: {{ task.title }}</div>
-      <div class="fw-bold">Task description: {{ task.description }}</div>
-    </div>
-    <span class="badge bg-primary rounded-pill"><a href="{% url 'to_do_detail' task.pk%}" class="button-text-color">More
-        info..</a></span>
-    <span class="badge bg-primary rounded-pill"><a href="{% url 'to_do_update' task.pk%}"
-        class="button-text-color">Update</a></span>
-  </li>
-</ol>
-{% endfor %}
+
+
+<form action="" method="post">
+  {% for task in tasks %}
+  <ol class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <p><input type="checkbox" name="checkedbox" value="{{ task.id }}"></p>
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">Title: {{ task.title }}</div>
+        <div class="fw-bold">Task description: {{ task.description }}</div>
+      </div>
+      <span class="badge bg-primary rounded-pill"><a href="{% url 'to_do_detail' task.pk%}"
+          class="button-text-color">More
+          info..</a></span>
+      <span class="badge bg-primary rounded-pill"><a href="{% url 'to_do_update' task.pk%}"
+          class="button-text-color">Update</a></span>
+    </li>
+  </ol>
+  {% endfor %}
+  {% csrf_token %}
+  <p><input class="btn btn-danger" type="submit" value="Delete ticked boxes" name="Delete"></p>
+</form>
 
 {% endblock %}
+
